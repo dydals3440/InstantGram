@@ -12,7 +12,7 @@ import {
   NewIcon,
   NewFillIcon,
 } from './ui/icons/index';
-import ColorButton from './ColorButton';
+import ColorButton from './ui/ColorButton';
 import Avatar from './Avatar';
 
 const menu = [
