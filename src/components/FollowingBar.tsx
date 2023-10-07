@@ -3,7 +3,7 @@
 import useSWR from 'swr';
 
 export default function FollowingBar() {
-  const { data, isLoading, error } = useSWR('/api/hello');
+  const { data, isLoading, error } = useSWR('/api/me');
   console.log(data);
 
   // 1. 클라이언트 컴포넌트에서 백엔드가 api/me 사용자의 정보를 얻어옴

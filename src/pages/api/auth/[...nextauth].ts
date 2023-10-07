@@ -14,6 +14,7 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async signIn({ user: { id, name, email, image } }) {
       if (!email) {
+        // 이메일이 옵셔널일수도 있기에 코드상으로 null일 수 있기에 false로 리턴
         return false;
       }
       addUser({
@@ -26,7 +27,6 @@ export const authOptions: NextAuthOptions = {
       return true;
     },
     async session({ session }) {
-      console.log(session);
       const user = session?.user;
       if (user) {
         session.user = {
