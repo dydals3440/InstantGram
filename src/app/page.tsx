@@ -17,12 +17,12 @@ export default async function HomePage() {
 
   return (
     <section className='w-full flex flex-col md:flex-row max-w-[850px] p-4'>
-      <div className='w-full basis-3/4'>
+      <div className='w-full basis-3/4 min-w-0'>
         {/* 두개의 컴포넌트는 세션에 들어있는 사용자의 정보만으로는 충분하지않음, 누구를 팔로잉하고있는지, 팔로잉하고있는 사람들의 postList를 받아와야함, SSR로 할껀지(서버처리 or 컴포넌트 내부에서 부분적으로 CSR까지 함께) */}
         <FollowingBar />
         <PostList />
       </div>
-      <div className='basis-1/4'>
+      <div className='basis-1/4 ml-8'>
         <SideBar user={user} />
       </div>
     </section>
