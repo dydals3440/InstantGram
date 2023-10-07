@@ -14,7 +14,9 @@ export default function Avatar({
       {/* 로컬상, 특정 외부 URL에 대한 도메인을 Next.config 파일에 추가해주면, 외부 URL을 이미지 태그에서 사용가능, 그런데 우리가 보여주고자 하는 이미지는 구글 OAuth 로그인시 자체적으로 가지고 있는 Image URL을 주는거임, 어떤 도메인을 가지는지는, 이들만의 내부 구현사항 특정 URL을 지정해서 도메인 등록하기 어려움. 나중에 Github Kakao 등 다양한 Oauth Provider를 사용한다면, 이미지 도메인이 달라짐, Next.js 사용하는 IMG 태그 사용어렵*/}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        className={`bg-white rounded-full  ${getImageSizeStyle(size)}`}
+        className={`bg-white object-cover rounded-full  ${getImageSizeStyle(
+          size
+        )}`}
         alt='user profile'
         src={image ?? undefined}
         referrerPolicy='no-referrer' // X box로 이슈 해결
