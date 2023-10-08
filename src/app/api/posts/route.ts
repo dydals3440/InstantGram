@@ -1,4 +1,5 @@
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
+import { getFollowingPostsOf } from '@/service/posts';
 import { getUserByUsername } from '@/service/user';
 import { getServerSession } from 'next-auth';
 import { NextResponse } from 'next/server';
@@ -12,6 +13,7 @@ export async function GET() {
     // 401 unAuthorized Error
     return new Response('Authentication Error', { status: 401 });
   }
-  return getUserByUsername(user.username) //
+  // 유효한 사용자가 있다면
+  return getFollowingPostsOf(user.username) //
     .then((data) => NextResponse.json(data));
 }
