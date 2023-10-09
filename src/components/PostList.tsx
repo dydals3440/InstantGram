@@ -7,11 +7,11 @@ import PostListCard from './PostListCard';
 export default function PostList() {
   const { data: posts, isLoading: loading } =
     useSWR<SimplePost[]>('/api/posts');
-  console.log(posts);
+
   return (
     <section>
       {loading && (
-        <div>
+        <div className='text-center mt-32'>
           <GridLoader color='red' />
         </div>
       )}
@@ -19,7 +19,7 @@ export default function PostList() {
         <ul>
           {posts &&
             posts.map((post) => (
-              <li key={post.id}>
+              <li key={post.id} className='mb-4'>
                 <PostListCard post={post} />
               </li>
             ))}
