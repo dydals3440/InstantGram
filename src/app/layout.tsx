@@ -27,6 +27,8 @@ export default function RootLayout({
             <SWRConfigContext>{children}</SWRConfigContext>
           </main>
         </AuthContext>
+        {/* 상세 다이얼로그 생성 PORTAL을 위한 태그 생성 */}
+        <div id='portal' />
       </body>
     </html>
   );
