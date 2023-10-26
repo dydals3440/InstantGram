@@ -1,5 +1,11 @@
+import UserSearch from '@/components/UserSearch';
 import React from 'react';
 
-export default function page() {
-  return <div>패아자 패아자</div>;
+export default function SearchPage() {
+  return (
+    <div>
+      Search Page
+      <UserSearch />
+    </div>
+  );
 }
