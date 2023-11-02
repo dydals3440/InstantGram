@@ -1,5 +1,12 @@
 import UserSearch from '@/components/UserSearch';
-import React from 'react';
+import { Metadata } from 'next';
+
+export const dynamic = 'force-dynamic';
+
+export const metadata: Metadata = {
+  title: 'User Search',
+  description: 'Search Users to Follow',
+};
 
 export default function SearchPage() {
   return (
