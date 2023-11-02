@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BookmarkIcon, HeartIcon } from './ui/icons';
 import { parseDate } from '@/util/date';
+import ToggleButton from './ToggleButton';
+import HeartFillIcon from './ui/icons/HeartFillIcon';
+import BookMarkFillIcon from './ui/icons/BookMarkFillIcon';
 
 type Props = {
   likes: string[];
@@ -10,11 +13,23 @@ type Props = {
 };
 
 export default function ActionBar({ likes, username, text, createdAt }: Props) {
+  const [liked, setLiked] = useState(false);
+  const [bookmarked, setBookmarked] = useState(false);
   return (
     <>
       <div className='flex justify-between my-2 px-4'>
-        <HeartIcon />
-        <BookmarkIcon />
+        <ToggleButton
+          toggled={liked}
+          onToggle={setLiked}
+          onIcon={<HeartFillIcon />}
+          offIcon={<HeartIcon />}
+        />
+        <ToggleButton
+          toggled={bookmarked}
+          onToggle={setBookmarked}
+          onIcon={<BookmarkIcon />}
+          offIcon={<BookMarkFillIcon />}
+        />
       </div>
       <div className='px-4 py-1'>
         {/* likes가 있고, length가 있다면 그걸쓰고, 없으면 0씀. */}
